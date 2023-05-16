@@ -3,8 +3,10 @@ const app = express();
 app.use(express.json());
 const db = require("./utils/database");
 const Todo = require("./models/todoModel");
+require("dotenv").config();
+const PORT = process.env.PORT || 8000;
 
-app.listen(8000, () => console.log("Server running on port 8000"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 db.authenticate()
   .then(()=> console.log("Database connected"))

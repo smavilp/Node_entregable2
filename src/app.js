@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
+app.use(cors());
 app.use(express.json());
 const db = require("./utils/database");
 const Todo = require("./models/todoModel");
 require("dotenv").config();
 const PORT = process.env.PORT || 8000;
+const cors = require("cors");
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

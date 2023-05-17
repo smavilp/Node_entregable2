@@ -54,10 +54,11 @@ app.put("/api/v1/todo/:id", async (req, res) => {
   try{
     const {id} = req.params;
     const {title, description, completed} = req.body;
-    await Users.update(
+    await Todo.update(
       {title, description, completed},
       {where: {id}}
     );
+    res.status(204).send();
   } catch (error) {
     res.status(400).json(error);
   }
